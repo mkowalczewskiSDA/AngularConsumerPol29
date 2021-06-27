@@ -1,1 +1,24 @@
-<p>task-list works!</p>
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Description</th>
+            <th scope="col">% Completed</th>
+            <th scope="col">User</th>
+            <th scope="col">Completed ?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+              <td>{{ task.id }}</td>
+              <td>{{ task.description }}</td>
+              <td>{{ task.completionPercentage }}</td>
+              <td>{{ task.user?.firstName }} {{ task.user?.lastName}}</td>
+              <td>{{ task.completed }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
