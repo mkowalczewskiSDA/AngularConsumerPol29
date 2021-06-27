@@ -16,9 +16,26 @@
               <td>{{ task.description }}</td>
               <td>{{ task.completionPercentage }}</td>
               <td>{{ task.user?.firstName }} {{ task.user?.lastName}}</td>
-              <td><input type="checkbox" name="completed" [(ngModel)]="task.completed" (change)=changeCompleted(task)/></td>
+              <td><input type="checkbox" name="completed" [(ngModel)]="task.completed"
+                 (change)=changeCompleted(task)/></td>
           </tr>
         </tbody>
       </table>
+
+      <form (ngSubmit)="add()" #taskForm="ngForm">
+          <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" 
+                id="description" 
+                [(ngModel)]="newTask.description"
+                name="description"
+                class="form-control"
+                placeholder="Enter Task Description"
+                required #description="ngModel">
+          </div>
+          <button type="submit" [disabled]="!taskForm.form.valid"
+          class="btn btn-info">Submit</button>
+      </form>
+
     </div>
   </div>

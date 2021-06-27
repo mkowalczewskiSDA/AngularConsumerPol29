@@ -21,6 +21,12 @@ export class TaskService {
    public update(task: Task) {
      return this.http.put(this.tasksUrl+"/"+task.id, task).subscribe(
        () => console.log("task updated")
-       )
+       );
+   }
+
+   public create(task: Task) {
+     this.http.post<Task>(this.tasksUrl, task).subscribe(
+       () => console.log("task created")
+     );
    }
 }

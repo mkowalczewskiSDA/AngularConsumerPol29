@@ -10,15 +10,22 @@ import { TaskService } from 'src/app/service/task/task.service';
 export class TaskListComponent implements OnInit {
   
   tasks: Task[]
+  newTask: Task
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.taskService.findAll().subscribe(data => this.tasks = data)
+    this.taskService.findAll().subscribe(data => this.tasks = data);
+    this.newTask = new Task();
   }
 
   changeCompleted(task: Task) {
     this.taskService.update(task);
+  }
+
+  add() {
+    this.taskService.create(this.newTask);
+    window.location.reload();
   }
 
 }
