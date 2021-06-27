@@ -17,4 +17,8 @@ export class TaskListComponent implements OnInit {
     this.taskService.findAll().subscribe(data => this.tasks = data)
   }
 
+  changeCompleted(task: Task) {
+    this.taskService.update(task);
+  }
+
 }

@@ -16,7 +16,7 @@
               <td>{{ task.description }}</td>
               <td>{{ task.completionPercentage }}</td>
               <td>{{ task.user?.firstName }} {{ task.user?.lastName}}</td>
-              <td>{{ task.completed }}</td>
+              <td><input type="checkbox" name="completed" [(ngModel)]="task.completed" (change)=changeCompleted(task)/></td>
           </tr>
         </tbody>
       </table>

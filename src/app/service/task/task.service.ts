@@ -15,8 +15,12 @@ export class TaskService {
    }
 
    public findAll(): Observable<Task[]> {
-    var test = this.http.get<Task[]>(this.tasksUrl);
-    console.log(test[0])
-     return test;
+     return this.http.get<Task[]>(this.tasksUrl);
+   }
+
+   public update(task: Task) {
+     return this.http.put(this.tasksUrl+"/"+task.id, task).subscribe(
+       () => console.log("task updated")
+       )
    }
 }
